@@ -17,11 +17,14 @@ jobs:
   build:
     env:
       #Declarar y definir mis variables de entorno
+      MY_VAR: "Mis variables de entorno"
       nombres: "Marita Lizet"          
       apellidos: "Quispe Rodriguez"       
       edad: "35"     
 
-      
+      #Declarar y definir mis variables secretas
+      user: ${{ secrets.user }}
+      password: ${{ secrets.password }}
     
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
@@ -45,8 +48,13 @@ jobs:
        # 1er step: Presentación - Impresion varible de entorno
       - name: Presentacion
         run: |
-          echo " Mis nombres son: ${{env.nombres}}"
+          echo "Mis nombres son: ${{env.nombres}}"
           echo "Mis apellidos son: ${{env.apellidos}}"
           echo "Mi edad: ${{env.edad}}"
 
+       # 2do step: Presentación - Impresion varible de entorno
+      - name: Datos generales
+        run: |
+          echo Carrera de Ingeneria de Sistemas.
+         
           
